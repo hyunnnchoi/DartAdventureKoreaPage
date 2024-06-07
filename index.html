@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Travel Destination</title>
+    <script>
+        function generateRandomCoordinate() {
+            const minLatitude = 33.1000;
+            const maxLatitude = 38.6137;
+            const minLongitude = 124.6231;
+            const maxLongitude = 131.8722;
+
+            const randomLatitude = (Math.random() * (maxLatitude - minLatitude) + minLatitude).toFixed(6);
+            const randomLongitude = (Math.random() * (maxLongitude - minLongitude) + minLongitude).toFixed(6);
+
+            return { latitude: randomLatitude, longitude: randomLongitude };
+        }
+
+        function displayRandomCoordinate() {
+            const coordinate = generateRandomCoordinate();
+            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${coordinate.latitude},${coordinate.longitude}`;
+            document.getElementById('coordinate').innerText = `Latitude: ${coordinate.latitude}, Longitude: ${coordinate.longitude}`;
+            document.getElementById('googleMapsLink').href = googleMapsUrl;
+            document.getElementById('googleMapsLink').innerText = googleMapsUrl;
+        }
+    </script>
+</head>
+<body onload="displayRandomCoordinate()">
+    <h1>Random Travel Destination</h1>
+    <p id="coordinate"></p>
+    <a id="googleMapsLink" href="#" target="_blank"></a>
+    <button onclick="displayRandomCoordinate()">Generate New Coordinate</button>
+</body>
+</html>
