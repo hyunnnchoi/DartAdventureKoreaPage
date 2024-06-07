@@ -26,7 +26,8 @@
 
         function displayRandomCoordinate() {
             const coordinate = generateRandomCoordinate();
-            const googleMapsUrl = `https://www.google.com/maps?q=${coordinate.latitude},${coordinate.longitude}&z=15&output=embed`;
+            const zoomLevel = 6; // 원하는 줌 레벨 설정
+            const googleMapsUrl = `https://www.google.com/maps?q=${coordinate.latitude},${coordinate.longitude}&z=${zoomLevel}&output=embed`;
             document.getElementById('coordinate').innerText = `Latitude: ${coordinate.latitude}, Longitude: ${coordinate.longitude}`;
             document.getElementById('googleMapsLink').href = googleMapsUrl;
             document.getElementById('googleMapsLink').innerText = `Open in Google Maps`;
