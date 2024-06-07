@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spin the Korean Adventure Wheel!</title>
+    <title>Spin the Korea!</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -24,6 +24,13 @@
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             text-align: center;
+        }
+        p#description {
+            font-size: 1.2em;
+            color: #666666;
+            text-align: center;
+            margin-top: 10px;
+            max-width: 600px;
         }
         #content {
             display: flex;
@@ -85,6 +92,9 @@
             h1 {
                 font-size: 2em;
             }
+            p#description {
+                font-size: 1em;
+            }
             #content {
                 width: 95%;
                 padding: 15px;
@@ -103,6 +113,9 @@
             h1 {
                 font-size: 1.8em;
                 margin-top: 10px;
+            }
+            p#description {
+                font-size: 0.9em;
             }
             #map {
                 height: 250px;
@@ -154,7 +167,8 @@
     </script>
 </head>
 <body>
-    <h1>Spin the Korean Adventure Wheel!</h1>
+    <h1>Spin the Korean!</h1>
+    <p id="description">Due to unforeseen errors, you may end up in North Korea, the middle of the sea, or Japan. But don't worry!</p>
     <div id="content">
         <p id="coordinate"></p>
         <a id="googleMapsLink" href="#" target="_blank"></a>
