@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Travel Destination</title>
+    <style>
+        #map {
+            height: 800px;
+            width: 100%;
+            border: 0;
+        }
+    </style>
     <script>
         function generateRandomCoordinate() {
             const minLatitude = 33.1000;
@@ -19,17 +26,21 @@
 
         function displayRandomCoordinate() {
             const coordinate = generateRandomCoordinate();
-            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${coordinate.latitude},${coordinate.longitude}`;
+            const googleMapsUrl = `https://www.google.com/maps?q=${coordinate.latitude},${coordinate.longitude}&z=15&output=embed`;
             document.getElementById('coordinate').innerText = `Latitude: ${coordinate.latitude}, Longitude: ${coordinate.longitude}`;
             document.getElementById('googleMapsLink').href = googleMapsUrl;
-            document.getElementById('googleMapsLink').innerText = googleMapsUrl;
+            document.getElementById('googleMapsLink').innerText = `Open in Google Maps`;
+            document.getElementById('map').src = googleMapsUrl;
         }
+
+        window.onload = displayRandomCoordinate;
     </script>
 </head>
-<body onload="displayRandomCoordinate()">
+<body>
     <h1>Random Travel Destination</h1>
     <p id="coordinate"></p>
     <a id="googleMapsLink" href="#" target="_blank"></a>
+    <iframe id="map" frameborder="0" allowfullscreen></iframe>
     <button onclick="displayRandomCoordinate()">Generate New Coordinate</button>
 </body>
 </html>
