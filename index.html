@@ -152,14 +152,13 @@
         function displayRandomCoordinate() {
             const coordinate = generateRandomCoordinate();
             const zoomLevel = 6; // 원하는 줌 레벨 설정
-            const googleMapsUrl = `https://www.google.com/maps?q=${coordinate.latitude},${coordinate.longitude}&z=${zoomLevel}&output=embed`;
+            const googleMapsUrl = `https://www.google.com/maps?q=${coordinate.latitude},${coordinate.longitude}&z=${zoomLevel}`;
             const googleMapsNavUrl = `https://www.google.com/maps/dir/?api=1&destination=${coordinate.latitude},${coordinate.longitude}`;
 
             document.getElementById('coordinate').innerText = `Latitude: ${coordinate.latitude}, Longitude: ${coordinate.longitude}`;
             document.getElementById('googleMapsLink').href = googleMapsUrl;
-            document.getElementById('googleMapsLink').innerText = `Open in Google Maps`;
 
-            document.getElementById('map').src = googleMapsUrl;
+            document.getElementById('map').src = googleMapsUrl + "&output=embed";
             document.getElementById('navigateButton').href = googleMapsNavUrl;
         }
 
@@ -171,7 +170,7 @@
     <p id="description">Due to unforeseen errors, you may end up in North Korea, the middle of the sea, or Japan. But don't worry!</p>
     <div id="content">
         <p id="coordinate"></p>
-        <a id="googleMapsLink" href="#" target="_blank"></a>
+        <a id="googleMapsLink" href="#" target="_blank">Open in Google Maps</a>
         <iframe id="map" src="https://www.google.com/maps?q=37.5665,126.9780&z=10&output=embed" frameborder="0" allowfullscreen></iframe>
         <button class="button" onclick="displayRandomCoordinate()">Generate New Coordinate</button>
         <a id="navigateButton" class="button" href="#" target="_blank">Navigate!</a>
