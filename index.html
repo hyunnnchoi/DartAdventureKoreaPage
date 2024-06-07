@@ -13,15 +13,24 @@
     </style>
     <script>
         function generateRandomCoordinate() {
-            const minLatitude = 33.1000;
-            const maxLatitude = 38.6137;
-            const minLongitude = 124.6231;
-            const maxLongitude = 131.8722;
+            // 한국 육지 범위 (대략적인 값)
+            const minLatitude = 34.0;
+            const maxLatitude = 38.5;
+            const minLongitude = 126.0;
+            const maxLongitude = 129.5;
 
-            const randomLatitude = (Math.random() * (maxLatitude - minLatitude) + minLatitude).toFixed(6);
-            const randomLongitude = (Math.random() * (maxLongitude - minLongitude) + minLongitude).toFixed(6);
+            let randomLatitude, randomLongitude;
+            while (true) {
+                randomLatitude = (Math.random() * (maxLatitude - minLatitude) + minLatitude).toFixed(6);
+                randomLongitude = (Math.random() * (maxLongitude - minLongitude) + minLongitude).toFixed(6);
 
-            return { latitude: randomLatitude, longitude: randomLongitude };
+                // 육지 범위에 속하는지 확인 (필요시 육지 경계 정보로 정확하게 조정 가능)
+                if ((randomLatitude >= 34.0 && randomLatitude <= 38.5) && (randomLongitude >= 126.0 && randomLongitude <= 129.5)) {
+                    break;
+                }
+            }
+
+            return { latitude: parseFloat(randomLatitude), longitude: parseFloat(randomLongitude) };
         }
 
         function displayRandomCoordinate() {
@@ -41,7 +50,7 @@
     <h1>Random Travel Destination</h1>
     <p id="coordinate"></p>
     <a id="googleMapsLink" href="#" target="_blank"></a>
-    <iframe id="map" frameborder="0" allowfullscreen></iframe>
+    <iframe id="map" src="https://www.google.com/maps?q=37.5665,126.9780&z=10&output=embed" frameborder="0" allowfullscreen></iframe>
     <button onclick="displayRandomCoordinate()">Generate New Coordinate</button>
 </body>
 </html>
