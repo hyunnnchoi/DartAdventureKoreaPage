@@ -58,8 +58,8 @@
         #googleMapsLink:hover {
             text-decoration: underline;
         }
-        button {
-            margin-top: 20px;
+        .button {
+            margin-top: 10px;
             padding: 12px 24px;
             font-size: 1.2em;
             color: white;
@@ -69,8 +69,13 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            width: 80%; /* 버튼 너비를 동일하게 설정 */
+            max-width: 300px; /* 최대 너비 설정 */
+            text-align: center;
+            display: block;
+            text-decoration: none;
         }
-        button:hover {
+        .button:hover {
             background-color: #005bb5;
             transform: translateY(-2px);
         }
@@ -88,7 +93,7 @@
                 height: 300px;
                 margin-top: 15px;
             }
-            button {
+            .button {
                 font-size: 1em;
                 padding: 10px 20px;
             }
@@ -103,7 +108,7 @@
                 height: 250px;
                 margin-top: 10px;
             }
-            button {
+            .button {
                 font-size: 0.9em;
                 padding: 8px 16px;
             }
@@ -135,21 +140,27 @@
             const coordinate = generateRandomCoordinate();
             const zoomLevel = 6; // 원하는 줌 레벨 설정
             const googleMapsUrl = `https://www.google.com/maps?q=${coordinate.latitude},${coordinate.longitude}&z=${zoomLevel}&output=embed`;
+            const googleMapsNavUrl = `https://www.google.com/maps/dir/?api=1&destination=${coordinate.latitude},${coordinate.longitude}`;
+
             document.getElementById('coordinate').innerText = `Latitude: ${coordinate.latitude}, Longitude: ${coordinate.longitude}`;
             document.getElementById('googleMapsLink').href = googleMapsUrl;
             document.getElementById('googleMapsLink').innerText = `Open in Google Maps`;
+
             document.getElementById('map').src = googleMapsUrl;
+            document.getElementById('navigateButton').href = googleMapsNavUrl;
         }
 
         window.onload = displayRandomCoordinate;
     </script>
 </head>
 <body>
+    <h1>Spin the Korean Adventure Wheel!</h1>
     <div id="content">
         <p id="coordinate"></p>
         <a id="googleMapsLink" href="#" target="_blank"></a>
         <iframe id="map" src="https://www.google.com/maps?q=37.5665,126.9780&z=10&output=embed" frameborder="0" allowfullscreen></iframe>
-        <button onclick="displayRandomCoordinate()">Generate New Coordinate</button>
+        <button class="button" onclick="displayRandomCoordinate()">Generate New Coordinate</button>
+        <a id="navigateButton" class="button" href="#" target="_blank">Navigate!</a>
     </div>
 </body>
 </html>
