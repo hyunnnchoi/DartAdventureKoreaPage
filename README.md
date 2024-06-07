@@ -1,6 +1,6 @@
-# Random Travel Destination
+# DartAdventureKoreaPage
 
-Welcome to the **Random Travel Destination** project! 🎯✨
+Welcome to the **DartAdventureKoreaPage** project! 🎯✨
 
 This project generates random coordinates within South Korea's land area and displays them on Google Maps. It's perfect for spontaneous travel enthusiasts looking for their next adventure spot in South Korea!
 
@@ -17,8 +17,8 @@ To get started, simply clone the repository and open the `index.html` file in yo
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/random-travel-destination.git
-    cd random-travel-destination
+    git clone https://github.com/yourusername/DartAdventureKoreaPage.git
+    cd DartAdventureKoreaPage
     ```
 
 2. Open the `index.html` file in your favorite web browser:
